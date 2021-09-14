@@ -10,7 +10,7 @@
     
     <div class="col-sm-3" >
       
-       <rest-calls  :myProp1="text" :myProp2="emotionvalue" :myProp3="suggestionword" v-on:abc="hey($event)" v-on:listentographvalue="plotgraph($event)" v-on:listentovalencevalue="plotvalence($event)"  v-on:listentomarkvalue="marksentence($event)"  > </rest-calls>
+       <rest-calls  :myProp1="text" :myProp2="emotionvalue" :myProp3="suggestionword" v-on:abc="listen($event)" v-on:listentographvalue="plotgraph($event)" v-on:listentovalencevalue="plotvalence($event)"  v-on:listentomarkvalue="marksentence($event)"  > </rest-calls>
 
       <horizontal-barchart  v-on:listentoemotionclicked="markup($event)" v-on:listensuccess="this.plot='true'" :data="graphvalue" id="horizontalbarchart"  ></horizontal-barchart>
 
@@ -60,16 +60,14 @@ export default {
     plotsuggestion : function(val) {
        this.suggestionword=val
     },
-    hey : function(val){
-      alert('hfh')
+    listen : function(val){
       this.suggestiondata=val.data
       this.suggestionlabel=val.label
     },
     marksentence : function(val){
       this.markemotion=val
     },
-    markup : function(value) { 
-      
+    markup : function(value) {    
       this.emotionvalue=value
     },
     plotgraphbool : function(val) {
